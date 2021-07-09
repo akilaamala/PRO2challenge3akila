@@ -10,7 +10,7 @@ zoom: 10,
 
 function getAPIdata() {
 
-   var url = 'https://api.openweathermap.org/data/2.5/weather';
+   var url = 'https://api.openweathermap.org/data/2.5/forecast';
    var apiKey ='fbdf505db145dd956f16c39df1d95ff8';
    var city = 'den haag';
    var request = url + '?' + 'appid=' + apiKey + '&' + 'q=' + city;
@@ -32,17 +32,13 @@ function onAPISucces(response) {
    
    console.log(response);
 
-   var city = response.name;
-
-   var humid = response.main.humidity;
-
-   var celsius = Math.floor(response.main.temp - 273.15);
-
-   var weather = response.weather[0].description;
+   var city = response.city.name;
+   var popul = response.city.population;
+   var timezone = response.city.timezone;
 
 
-   var localWeather = document.getElementById('weather');
-   localWeather.innerHTML = city + '<br>' + 'Humidity: <br>'+ humid + '<br>' + celsius + '&#176;C <br>' + weather +'<br>';
+   var localNews = document.getElementById('news');
+   localNews.innerHTML = city + '<br>' + 'Population: <br>' + popul + '<br>' + 'Timezone: <br>' + timezone;
 
 }
 
