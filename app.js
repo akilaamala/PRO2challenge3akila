@@ -42,7 +42,7 @@ function onAPISucces(response) {
 
 
    var localWeather = document.getElementById('weather');
-   localWeather.innerHTML = city + '<br>' + 'humidity: <br>'+ humid + '<br>' + celsius + '&#176;C <br>' + weather +'<br>';
+   localWeather.innerHTML = city + '<br>' + 'Humidity: <br>'+ humid + '<br>' + celsius + '&#176;C <br>' + weather +'<br>';
 
 }
 
