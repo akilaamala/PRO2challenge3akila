@@ -2,7 +2,7 @@ mapboxgl.accessToken = "pk.eyJ1IjoiYWtpbGFhbWFsYSIsImEiOiJja3FwMjVtaHUwcTgwMnZwN
 
 var map = new mapboxgl.Map({
 container: 'map',
-style: 'mapbox://styles/mapbox/dark-v10',
+style: 'mapbox://styles/mapbox/satellite-streets-v11',
 
 center: [4.322840, 52.067101],
 zoom: 10,
@@ -15,7 +15,6 @@ function getAPIdata() {
    var city = 'den haag';
    var request = url + '?' + 'appid=' + apiKey + '&' + 'q=' + city;
    
-
    fetch(request)
    
    .then(function(response) {
@@ -27,9 +26,6 @@ function getAPIdata() {
       onAPISucces(response);  
    })
    
-   .catch(function (error) {
-      onAPIError(error);
-   });
 }
 
 function onAPISucces(response) {
@@ -48,12 +44,6 @@ function onAPISucces(response) {
    var localWeather = document.getElementById('weather');
    localWeather.innerHTML = city + '<br>' + 'humidity: <br>'+ humid + '<br>' + celsius + '&#176;C <br>' + weather +'<br>';
 
-}
-
-function onAPIError(error) {
-   console.error('Request failed', error);
-   var localWeather = document.getElementById('weather');
-   localWeather.className = 'hidden'; 
 }
 
 getAPIdata();
